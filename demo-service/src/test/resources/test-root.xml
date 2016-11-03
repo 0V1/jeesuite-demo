@@ -7,11 +7,8 @@
                             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
                             http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-	<import resource="cache.xml" />
 	<import resource="classpath*:spring/dao.xml" />
-	<import resource="task.xml" />
-	<import resource="kafka-producer.xml" />
-	<import resource="kafka-consumer.xml" />
+	<import resource="classpath*:spring/cache.xml" />
 	
 	<context:annotation-config />
     <aop:aspectj-autoproxy proxy-target-class="true" />

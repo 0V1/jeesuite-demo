@@ -9,7 +9,13 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="CHAR" />
     <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
     <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
     <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+  <select id="findByType" parameterType="int" resultMap="BaseResultMap">
+      SELECT * FROM users WHERE type = #{type}
+  </select>
+
 </mapper>

@@ -15,6 +15,8 @@ public class UserEntity extends BaseEntity {
     private String password;
 
     private String mobile;
+    
+    private Integer type;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -49,8 +51,17 @@ public class UserEntity extends BaseEntity {
     public void setName(String name) {
         this.name = name;
     }
+    
 
-    /**
+    public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	/**
      * @return password
      */
     public String getPassword() {

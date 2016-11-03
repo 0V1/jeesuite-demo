@@ -5,8 +5,7 @@ package com.jeesuite.demo.service;
 
 import java.util.Map;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jeesuite.cache.command.RedisHashMap;
@@ -28,10 +27,10 @@ import com.jeesuite.kafka.spring.TopicProducerSpringProvider;
 @Service
 public class UserServiceImpl implements IUserService {
 
-	@Resource
+	@Autowired(required = false)
 	private UserEntityMapper userMapper;
 	
-	@Resource
+	@Autowired(required = false)
 	private TopicProducerSpringProvider kafkaProducer;
 
 	@Override
