@@ -13,10 +13,11 @@
 	<bean class="com.jeesuite.confcenter.spring.CCPropertyPlaceholderConfigurer">
 	   <property name="remoteEnabled" value="true" />
 	   <!-- 本地配置文件 -->
-	   <!-- <property name="location">
+	   <!-- 
+	   <property name="location">
          <value>classpath:/local/*.properties</value>
-       </property> -->
-    </property>
+       </property>
+        -->
 	</bean>
 	
 	<context:component-scan base-package="com.jeesuite.demo" />
