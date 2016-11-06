@@ -7,6 +7,9 @@
         <dependent-module archiveName="jeesuite-rest-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jeesuite-rest/jeesuite-rest">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="jeesuite-common-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jeesuite-common/jeesuite-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="demo-service-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/demo-service/demo-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -14,6 +17,9 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="jeesuite-cache-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jeesuite-cache/jeesuite-cache">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jeesuite-kafka-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jeesuite-kafka/jeesuite-kafka">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="jeesuite-scheduler-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jeesuite-scheduler/jeesuite-scheduler">

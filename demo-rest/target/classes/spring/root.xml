@@ -9,8 +9,16 @@
                             http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd 
                             http://code.alibabatech.com/schema/dubbo http://files.sports.lifesense.com/xsd/dubbo.xsd">
 
-
-	<context:property-placeholder ignore-unresolvable="true" local-override="true" location="classpath:*.properties" />
+	
+	<bean class="com.jeesuite.confcenter.spring.CCPropertyPlaceholderConfigurer">
+	   <property name="remoteEnabled" value="true" />
+	   <!-- 本地配置文件 -->
+	   <!-- 
+	   <property name="location">
+         <value>classpath:/local/*.properties</value>
+       </property>
+        -->
+	</bean>
 	
 	<context:component-scan base-package="com.jeesuite.demo" />
 	<import resource="classpath*:spring/service-root.xml" />
