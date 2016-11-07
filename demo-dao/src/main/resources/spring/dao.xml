@@ -37,7 +37,7 @@
                     <property name="interceptorHandlers">
                        <list>
                            <bean class="com.jeesuite.mybatis.plugin.cache.CacheHandler" />
-                           <!-- <bean class="com.jeesuite.mybatis.plugin.rwseparate.routeHandler" />
+                           <!-- <bean class="com.jeesuite.mybatis.plugin.rwseparate.RwRouteHandler" />
                            <bean class="com.jeesuite.mybatis.plugin.shard.DatabaseRouteHandler" /> -->
                        </list>
                     </property>
