@@ -7,10 +7,15 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import com.jeesuite.cache.command.RedisHashMap;
 import com.jeesuite.cache.command.RedisString;
 import com.jeesuite.common.util.BeanCopyUtils;
+import com.jeesuite.common2.lock.MultiRetryLock;
 import com.jeesuite.demo.api.IUserService;
 import com.jeesuite.demo.dao.entity.UserEntity;
 import com.jeesuite.demo.dao.mapper.UserEntityMapper;
@@ -32,6 +37,9 @@ public class UserServiceImpl implements IUserService {
 	
 	@Autowired(required = false)
 	private TopicProducerSpringProvider kafkaProducer;
+	
+	@Autowired
+	private TransactionTemplate transactionTemplate;
 
 	@Override
 	public User getUser(Integer userId) throws UserNoExistException {
@@ -43,12 +51,27 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public void updateUser(User user) {
-		UserEntity entity = BeanCopyUtils.copy(user, UserEntity.class);
-		userMapper.updateByPrimaryKeySelective(entity);
+		//分布式锁
+		MultiRetryLock lock = new MultiRetryLock("updateuser_"+user.getId());
+		lock.lock();
+		try {			
+			final UserEntity entity = BeanCopyUtils.copy(user, UserEntity.class);
+			transactionTemplate.execute(new TransactionCallback<Void>() {
+				
+				@Override
+				public Void doInTransaction(TransactionStatus status) {
+					userMapper.updateByPrimaryKeySelective(entity);
+					return null;
+				}
+			});
+		} finally {
+			lock.unlock();
+		}
 	}
 
 	@Override
-	public void removeUser(Integer userId) throws UserNoExistException {
+	@Transactional
+	public void removeUser(final Integer userId) throws UserNoExistException {
 		UserEntity entity = userMapper.selectByPrimaryKey(userId);
 		if(entity == null)throw new UserNoExistException();
 		userMapper.deleteByPrimaryKey(userId);
