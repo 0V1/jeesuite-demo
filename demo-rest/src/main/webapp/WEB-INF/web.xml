@@ -37,7 +37,7 @@
 
   <servlet-mapping>
     <servlet-name>jersey-serlvet</servlet-name>
-    <url-pattern>/demo*</url-pattern>
+    <url-pattern>/demo/*</url-pattern>
   </servlet-mapping>
 
 	<session-config>
