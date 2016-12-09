@@ -9,22 +9,17 @@
 	<artifactId>demo-dao</artifactId>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.jeesuite</groupId>
-			<artifactId>jeesuite-common</artifactId>
-			<version>1.0.0</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.jeesuite</groupId>
 			<artifactId>jeesuite-mybatis</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
+			<version>${jeesuite.mybatis.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.jeesuite</groupId>
 			<artifactId>jeesuite-cache</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
+			<version>${jeesuite.cache.version}</version>
 		</dependency>
 
 		<dependency>

@@ -14,23 +14,17 @@
 			<artifactId>jeesuite-spring</artifactId>
 			<version>1.0.0</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>com.jeesuite</groupId>
-			<artifactId>jeesuite-cache</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.jeesuite</groupId>
 			<artifactId>jeesuite-kafka</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
+			<version>${jeesuite.kafka.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.jeesuite</groupId>
 			<artifactId>jeesuite-scheduler</artifactId>
-			<version>1.0.0</version>
+			<version>${jeesuite.sch.version}</version>
 		</dependency>
 		
 		<dependency>
